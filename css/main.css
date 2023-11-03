@@ -36,7 +36,7 @@ h1, h2, h3 {
 }
 
 ul {
-	padding-left: 1.25rem;
+	padding-left: 1.5rem;
 }
 
 body {
@@ -62,93 +62,80 @@ a:focus {
 .sidebar{
     background:#6ecadc;
     top: 0px;
-    padding:2em 30px;
+    padding:1.5rem;
 	display:block;
 }
 .sidebar h1{
     font-size:2.5em;
     font-weight:500;
-    margin-bottom:1em;
+    margin-bottom:1rem;
     color:#fff;
 }
 .sidebar img{
     border:1px solid #fff;
-    padding:1em;
-    width:100%;
+    padding:0.5rem;
+    width:165px;
+	height: 165px;
+	border-radius: 50%;
+	object-fit: fill;
 }
 
-.sidebar-details{
-	margin-top:2em;
-}
-.sidebar-details h3{
-	font-weight:300;
-	font-size:1em;
-	color:#fff;
+.sidebar h5{
+	color:#000;
 }  
 
-.sidebar-details p{
-	color:#101010;
-	font-size:0.9em;
-	margin:5px 0 2em 0;
-}
-.sidebar-details p a{
-	color:#101010;
-	font-size:0.9em;
+.sidebar p, span, p a{
+	color:#FFF;
 }
 
-.sidebar-address h3{
-	margin-bottom:5px;
-}
-.sidebar-address span{
+.sidebar span{
 	display:block;
-	color:#101010;
-	font-size:0.9em;
-	line-height:1.5em;
+	line-height:1.5rem;
 }
 
 /*-- content section --*/
 
 .main-section{  
-	padding:2em 0;
+	padding:1.5rem 0;
 }
 
 .content{
-	margin-right:3em;
+	margin-right:1.5rem;
 }
 
 .section {
-	margin:0 3em 0 0;
+	margin:0 1.5rem 0 0;
 }
 
 .section h3 {
 	color: #FFF;
-	padding: 5px 1.5em;
+	padding: 0.5rem 1.5rem;
 	display: inline-block;
 	width: 350px;
 	background: #6ecadc;
 }
 
 .inner-section {
-	padding:1.5em 0 1.5em 1.5em;
+	padding:1.5rem 0 1.5rem 1.5rem;
 }
 
 .inner-section h4{
 	color:#333;
 	font-weight:600;
 	font-size:1.5em;
-	margin-bottom:6px;
+	margin-bottom:0.75rem;
 }
 
 .inner-section h4 span{
 	font-size: 0.65em;
-	margin-left: 5px;
+	margin-left: 0.75rem;
 	color: #999;
 	font-weight:400;
 }
 
 .inner-section h6{
 	font-weight:400;
-	margin-bottom:1.3em;
+	margin-bottom:1.5rem;
 }
 
 .inner-section p, li{
@@ -160,7 +147,7 @@ a:focus {
 }
 
 .callout {
-    padding: 1.25rem;
+    padding: 1.5rem;
     border: 1px solid #e9ecef;
     border-left-width: 0.25rem;
     border-radius: 0.25rem;
@@ -173,11 +160,12 @@ progress {
 }
 
 .progress-bar-grids h6 {
-	font-size: 18px;
-	line-height: 20px;
+	font-size: 1.25em;
+	line-height: 1.5rem;
 	color: var(--title-color);
-	margin-bottom: 10px; 
+	margin-bottom: 0.75rem; 
 	font-family: Acme, sans-serif;
+	color: #999;
 }
 
 @-webkit-keyframes progress-bar-stripes {
@@ -239,40 +227,70 @@ progress {
 }
 
 /*--responsive--*/
-@media (max-width: 1366px){
-	.sidebar h1 {
-	  font-size: 2em;
-	}
-}
-
-@media (max-width: 1024px){
+@media (min-width: 992px){
 	.sidebar {
-		padding: 2em 17px;
-		width:20%;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		display: block;
+		overflow-x: hidden;
+		overflow-y: auto;
+		padding: 1.5rem;
+		width:18%;
 	}
 	.sidebar h1 {
 	  	font-size: 1.6em;
 	}
 	.main-section {
-		margin-left: 19.666667%;
+		margin-left: 18%;
+		width: 82%;
+	}
+}
+
+@media (min-width: 1024px) and (max-width: 1400px){
+	@media (max-width: 1250px)
+	{
+		.sidebar p, span, p a {
+			font-size: 0.9em;
+		}
+	}
+
+	.sidebar { 
+		width:20%;
+	}
+	.main-section {
+		margin-left: 20%;
 		width: 80%;
 	}
 }
 
-@media (max-width: 768px){
-	.sidebar {
-	  	width: 22%;
+@media (min-width: 992px) and (max-width: 1024px){
+	.sidebar p, span, p a {
+		font-size: 0.9em;
+	}
+	.sidebar { 
+		width:24%;
 	}
 	.main-section {
-		margin-left: 21.666667%;
-		width: 78%;
+		margin-left: 24%;
+		width: 76%;
 	}
+}
+
+@media (max-width: 992px){
+	.sidebar {
+		width: 100%;
+	}
+
+	.main-section {
+		margin-left: 0;
+		width: 100%;
+	}
+
 	.sidebar h1 {
 	  	font-size: 1.4em;
-	}
-	.sidebar img {
-		padding: 0.5em;
-		width: 89%;
 	}
 
 	.section h3 {
@@ -285,188 +303,6 @@ progress {
 	}
 
 	.inner-section p, li {
-		font-size: 0.8em;
 		text-align: justify;
-	}
-	.sidebar-details p {
-	  	font-size: 0.75em;
-	}
-	.sidebar-address span {
-	  	font-size: 0.8em;
-	}
-}
-
-@media (max-width: 736px){
-	.sidebar {
-	  	width: 100%;
-	}
-	.main-section {
-		margin-left: 0;
-		width: 100%;
-	}
-	.sidebar-header{
-		width:30%;
-		float:left;
-		margin-right:5%;
-	}
-	.sidebar-details{
-		width:30%;
-		float:right;
-	}
-}
-
-@media (max-width: 640px){
-	.sidebar {
-	  	width: 100%;
-	}
-	.main-section {
-		margin-left: 0;
-		width: 100%;
-	}
-	.sidebar-header{
-		width:30%;
-		float:left;
-		margin-right:5%;
-	}
-	.sidebar-details{
-		width:30%;
-		float:right;
-	}
-	.sidebar img{
-		width:100%;
-	}
-	.sidebar-details p {
-		font-size: 0.9em;
-		margin: 5px 0 1em 0;
-	}
-	.sidebar-details h3 {
-	  	font-size: 0.9em;
-	}
-}
-
-@media (max-width: 600px){
-	.sidebar-address {
-	  	margin-bottom:0px;
-	}
-	.sidebar-header {
-	  	width: 32%;
-	}
-	.sidebar img {
-	  	width: 85%;
-	}
-}
-
-@media (max-width: 480px){
-	
-	.section {
-		margin-right: 2em;
-	}
-
-	.sidebar-details {
-	  	width: 36%;
-	}
-	.sidebar h1 {
-	  	font-size: 1.3em;
-	}
-	.sidebar-header {
-	  	width: 38%;
-	}
-	.sidebar-address {
-	  margin-bottom: 0px;
-	}
-}
-
-@media (max-width: 414px){
-	.sidebar-header {
-	  	width: 45%;
-	}
-	.sidebar img {
-	  	width: 91%;
-	}
-	.sidebar-details {
-	  	width: 42%;
-	}
-}
-
-@media (max-width: 384px){
-	.sidebar h1 {
-	  	font-size: 1.2em;
-	}
-	.sidebar-details {
-	  	width: 45%;
-	}
-
-	.main-section {
-	  	padding: 1em 0 2em 0;
-	}
-
-	.section {
-		margin: 1em 0;
-	}
-	
-	.section h3 {
-		font-size: 1em;
-	}
-
-	.inner-section h4 {
-		font-size: 0.9em;
-	}
-
-	.inner-section p, li {
-		font-size: 0.8em;
-		text-align: justify;
-	}
-}
-
-@media (max-width: 375px){
-	.sidebar h1 {
-	  	font-size: 1em;
-	}
-	.sidebar img {
-	  	width: 70%;
-	}
-	.sidebar-details h3 {
-	  	font-size: 0.8em;
-	}
-	.sidebar-details p {
-		font-size: 0.75em;
-		margin: 5px 0 0.5em 0;
-	}
-	.sidebar-address span {
-	  	font-size: 0.7em;
-	}
-	.sidebar {
-	  	padding: 1.5em 17px 1em 17px;
-	}
-	.section h3 {
-		font-size: 1em;
-	}
-}
-
-@media (max-width: 320px){
-	.sidebar-header {
-	  	width: 50%;
-	}
-	.sidebar img {
-	  	width: 80%;
-	}
-	.sidebar-details h3 {
-	  	font-size: 0.7em;
-	}
-	.section {
-	  	margin-right: 1em;
-	}
-}
-
-@media (min-width: 768px) {
-	.sidebar {
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		z-index: 1000;
-		display: block;
-		overflow-x: hidden;
-		overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 	}
 }
