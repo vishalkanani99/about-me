@@ -12,24 +12,28 @@
     </head>
     <body>
         <!-- sidebar start -->
-        <div class="sidebar">
+        <div id="sidebar" class="sidebar">
             <div class="row">
-                <div class="col-4 col-lg-12 order-lg-1 align-self-center">
-                    <h1 class="text-center">Vishal Kanani</h1>
-                    <div class="d-flex justify-content-center mb-lg-5">
+                <div class="col-12 mb-5">
+                    <h2 class="text-center">Vishal Kanani</h2>
+                    <div class="d-flex justify-content-center">
                         <img src="images/donald-duck.webp" alt=""/>
                     </div>
                 </div> 
-                <div class="col-4 col-lg-12 order-first order-lg-2 align-self-center">
-                    <h5>PHONE</h5>
-                    <p>+91 9624157493</p>  	 
-                    <h5>EMAIL</h5>
-                    <p class="overflow-hidden text-truncate"><a href="javascript:void(0)" title="vishalkanani99@gmail.com">vishalkanani99@gmail.com</a></p>
+                <div class="col-12">
+                    <div class="d-flex flex-column justify-content-center align-items-center mb-3">
+                        <img class="svg-icon" src="images/icons/call.svg" />
+                        <p>+91 9624157493</p>  	 
+                    </div>
+                    <div class="d-flex flex-column justify-content-center align-items-center mb-3">
+                        <img class="svg-icon" src="images/icons/email.svg" />
+                        <p class="overflow-hidden text-truncate"><a href="javascript:void(0)" title="vishalkanani99@gmail.com">vishalkanani99@gmail.com</a></p>
+                    </div>
                 </div>
-                <div class="col-4 col-lg-12 order-last order-lg-3 align-self-center">
-                    <div class="d-flex justify-content-lg-start justify-content-md-end">
+                <div class="col-12">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <img class="svg-icon" src="images/icons/location.svg" />
                         <div>
-                            <h5>ADDRESS</h5>
                             <span>D-403, City Courtyard,</span>
                             <span>B/H Aalap Green City,</span>
                             <span>Opp. Dream City,</span>
@@ -39,18 +43,21 @@
                 </div>
             </div>
         </div>
+        <button type="button" id="sidebar-toggle-btn" class="sidebar-toggle-btn">
+            <img src="images/icons/user-list.svg" />
+        </button>
         <!-- sidebar end -->
 
         <!-- content section start -->
         <div class="main-section">
             <div class="section">
-                <h3>Objective</h3>
+                <h2>Objective</h2>
                 <div class="inner-section">
                     <p>To work in a challenging environment where my skills and knowledge are utilized for the achievement of the objectives of the organization.</p>
                 </div>
             </div>
             <div class="section">
-                <h3>Skills</h3>
+                <h2>Skills</h2>
                 <div class="inner-section">
                     <div class="row">
                         <div class="col-3">
@@ -258,7 +265,7 @@
                 </div>
             </div>
             <div class="section">
-                <h3>Experience</h3>
+                <h2>Experience</h2>
                 <div class="inner-section">
                     <div class="callout">
                         <h4>VoidBytes <span>Dec 2019 - July 2023</span></h4>
@@ -317,7 +324,7 @@
                 </div>
             </div>
             <div class="section">
-                <h3>Education</h3>
+                <h2>Education</h2>
                 <div class="inner-section">
                     <div class="callout">
                         <h4>V. V. P. Engineering College, Rajkot ( GTU )</h4>
@@ -349,4 +356,54 @@
         </div>
         <!-- content section end -->
     </body>
+    <script type="text/javascript">
+        let toggleBtn  = false;
+        const sidebarEl = document.getElementById('sidebar');
+        const toggleBtnEl = document.getElementById("sidebar-toggle-btn");
+        const toggleBtnImgEl = toggleBtnEl.children[0];
+        toggleBtnEl.addEventListener("click", toggleSidebar);
+        document.addEventListener("click", closeSidebar);
+        
+        function closeSidebar(e) {
+            let isSidebarEl = sidebarEl.contains(e.target) || toggleBtnEl.contains(e.target);
+            if( !isSidebarEl && !toggleBtn ) {
+                toggleSidebar();
+            }
+        }
+
+        function getSidebarWidth() {
+            if(screen.width >= 1280) {
+                return "18%";
+            }
+
+            if(screen.width >= 1024 && screen.width < 1280) {
+                return "30%";
+            }
+
+            return "40%";
+        }
+
+        let sidebarWidth = getSidebarWidth();
+
+        function setSidebarWidth() {
+            sidebarEl.style.width = sidebarWidth;
+            toggleBtnEl.style.left = sidebarWidth;
+        }
+
+        function toggleSidebar() {
+            toggleBtn = !toggleBtn;
+            if( toggleBtn ){
+                sidebarEl.style.left = `-${sidebarWidth}`;
+                toggleBtnEl.style.left = "0";
+                toggleBtnImgEl.src = "images/icons/user-list.svg";
+                return;
+            }
+            sidebarEl.style.removeProperty('left');
+            toggleBtnEl.style.removeProperty('left');
+            toggleBtnImgEl.src = "images/icons/close.svg";
+            setSidebarWidth();
+        }
+        
+        toggleSidebar();
+    </script>
 </html>
