@@ -175,7 +175,7 @@ p, span, li, p a{
 
 .section h2 {
 	color: #FFF;
-	padding: 0.75rem 4.5rem;
+	padding: 0.5rem 4.5rem;
 	display: inline-block;
 	width: 50%;
 	background: #6ecadc;
@@ -316,6 +316,10 @@ progress {
 }
 
 @media (min-width: 1280px){
+	h2 {
+		font-size: 2rem;
+	}
+
 	.sidebar img{ 
 		width: 165px;
 		height: 165px;
