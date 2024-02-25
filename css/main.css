@@ -96,8 +96,8 @@ a:focus {
 }
 
 .sidebar-toggle-btn img {
-	width: 30px;
-	height: 30px;
+	width: 70px;
+	height: 70px;
 	user-select: none;
 }
 
@@ -308,11 +308,21 @@ progress {
 		width: 200px;
 		height: 200px;
 	}
+
+	.sidebar-toggle-btn img {
+		width: 50px;
+		height: 50px;
+	}
 }
 
 @media (min-width: 1280px){
 	.sidebar img{ 
 		width: 165px;
 		height: 165px;
+	}
+
+	.sidebar-toggle-btn img {
+		width: 30px;
+		height: 30px;
 	}
 }
